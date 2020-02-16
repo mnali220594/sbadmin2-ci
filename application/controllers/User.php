@@ -35,8 +35,8 @@ class User extends CI_Controller
       $this->load->view('user/edit', $data);
       $this->load->view('templates/footer');
     } else {
-      $name = $this->input->post('name');
-      $email = $this->input->post('email');
+      $name = htmlspecialchars($this->input->post('name'));
+      $email = htmlspecialchars($this->input->post('email'));
 
       // cek jika ada gambar yang akan diupload
       $upload_image = $_FILES['image']['name'];
